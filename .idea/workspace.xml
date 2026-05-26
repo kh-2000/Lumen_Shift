@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="30a2a9d0-c852-41a0-ae29-75f841175cc4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Lumen_Shift.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="30a2a9d0-c852-41a0-ae29-75f841175cc4" name="Changes" comment="Ein test ob es funktionier in dem ich chen begrüße" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,8 +76,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1779437073558</updated>
-      <workItem from="1779437074691" duration="4381000" />
+      <workItem from="1779437074691" duration="4946000" />
     </task>
+    <task id="LOCAL-00001" summary="Ein test ob es funktionier in dem ich chen begrüße">
+      <option name="closed" value="true" />
+      <created>1779787596169</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1779787596169</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -101,6 +102,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Ein test ob es funktionier in dem ich chen begrüße" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ein test ob es funktionier in dem ich chen begrüße" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
