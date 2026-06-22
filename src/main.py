@@ -1,7 +1,8 @@
 import pygame
-
 from player import Player
 from world.World import World
+from enemy import Enemy
+from menu import Menu
 
 WIDTH = 1280
 HEIGHT = 720
@@ -20,35 +21,39 @@ class Game:
         self.state = MENU
         self.player = Player(WIDTH // 2,HEIGHT // 2)
         self.world = World()
+        self.enemy = Enemy()
+        self.game_over = False
         self.font = pygame.font.SysFont("arial",40)
+        self.menu = Menu()
 
     def events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
-            if event.type == pygame.KEYDOWN:
-                if self.state == MENU:
-                    if event.key == pygame.K_RETURN:
-                        self.state = GAME
-                elif self.state == GAME:
+            if self.state == MENU:
+                self.menu.handle_event(event,self)
+            elif self.state == GAME:
+                if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         self.state = PAUSE
-                    elif event.key == pygame.K_LSHIFT:
+                    elif (event.key == pygame.K_LSHIFT):
                         self.world.toggle_world()
-                elif self.state == PAUSE:
-                    if event.key == pygame.K_ESCAPE:
+            elif self.state == PAUSE:
+                if (event.type == pygame.KEYDOWN):
+                    if (event.key == pygame.K_ESCAPE):
                         self.state = GAME
 
     def update(self, dt):
         if self.state == GAME:
-            self.player.update(dt,self.world.get_walls())
+            self.player.update(dt, self.world.get_walls())
+            self.enemy.update(dt, self.world)
+            if self.enemy.touches_player(self.player):
+                self.game_over = True
+                self.state = MENU
 
     def draw_menu(self):
-        self.screen.fill((20, 20, 20))
-        title = self.font.render("LUMEN SHIFT",True,(255, 255, 255))
-        start = self.font.render("ENTER → SPIELEN",True,(180, 180, 180))
-        self.screen.blit(title,(450, 250))
-        self.screen.blit(start,(430, 350))
+        self.menu.update()
+        self.menu.draw(self.screen)
 
     def draw_pause(self):
         text = self.font.render("PAUSE",True,(255, 255, 255))
@@ -59,6 +64,7 @@ class Game:
     def draw_game(self):
         self.world.draw(self.screen)
         self.player.draw(self.screen)
+        self.enemy.draw(self.screen, self.world)
         world_text = self.font.render(
             "REALITÄT"
             if self.world.is_reality()
@@ -69,6 +75,7 @@ class Game:
             else
             (180, 80, 255))
         self.screen.blit(world_text,(20, 20))
+        self.menu.draw_ui(self.screen, self.world)
 
     def draw(self):
         if self.state == MENU:

@@ -1,4 +1,3 @@
-
 import pygame
 
 
@@ -22,7 +21,6 @@ class Player:
             dy -= self.speed * dt
         if keys[pygame.K_s]:
             dy += self.speed * dt
-
         self.rect.x += dx
 
         for wall in walls:
@@ -44,7 +42,4 @@ class Player:
         self.move(dt, walls)
 
     def draw(self, screen):
-        screen.blit(
-            self.image,
-            self.rect
-        )
+        screen.blit(self.image,self.rect)
