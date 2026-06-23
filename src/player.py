@@ -3,9 +3,9 @@ import pygame
 
 class Player:
     def __init__(self, x, y):
-        self.speed = 250
+        self.speed = 140
         self.image = pygame.image.load("assets/sprite_player.png").convert_alpha()
-        self.image = pygame.transform.scale(self.image,(120, 80))
+        self.image = pygame.transform.scale(self.image,(60, 60))
         self.rect = self.image.get_rect(center=(x, y))
 
     def move(self, dt, walls):
@@ -37,6 +37,26 @@ class Player:
                     self.rect.bottom = wall.top
                 if dy < 0:
                     self.rect.top = wall.bottom
+            # NICHT AUS DEM BILDSCHIRM
+        self.rect.left = max(
+            30,
+            self.rect.left
+        )
+
+        self.rect.right = min(
+            1280,
+            self.rect.right
+        )
+
+        self.rect.top = max(
+            30,
+            self.rect.top
+        )
+
+        self.rect.bottom = min(
+            720,
+            self.rect.bottom
+        )
 
     def update(self, dt, walls):
         self.move(dt, walls)
