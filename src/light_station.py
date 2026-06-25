@@ -6,8 +6,8 @@ class LightStation:
     def __init__(self):
 
         self.rect = pygame.Rect(
-            120,
-            540,
+            970,
+            250,
             140,
             120
         )
